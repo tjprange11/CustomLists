@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using CustomLists;
 
 namespace ListsTests
 {
@@ -11,18 +12,21 @@ namespace ListsTests
         public void addElement_CheckElementIsntAddedToFront_Int()
         {
             //Arrange
-            List<int> nums = new List<int>() { 1, 2, 3 };
+            CustomLists<int> nums = new CustomLists<int>();
+            nums.Add(1);
+            nums.Add(2);
+            nums.Add(3);
             int number = 0;
             //Act
             nums.Add(number);
             //Assert
-            Assert.AreNotEqual(nums[0],number);
+            Assert.AreNotEqual(nums.ElementAt(0),number);
         }
         [TestMethod]
         public void addElement_CheckElementIsAddedToBack_Int()
         {
             //Arrange
-            List<int> nums = new List<int>() { 0, 1, 2};
+            CustomLists<int> nums = new CustomLists<int>() { 0, 1, 2};
             int number = 3;
             //Act
             nums.Add(number);
@@ -33,7 +37,7 @@ namespace ListsTests
         public void addElement_CheckElementIsntAddedToFront_String()
         {
             //Arrange
-            List<string> words = new List<string>() { "hello", "world", "World" };
+            CustomLists<string> words = new CustomLists<string>() { "hello", "world", "World" };
             string word = "Hello";
             //Act
             words.Add(word);
@@ -44,7 +48,7 @@ namespace ListsTests
         public void addElement_CheckElementIsAddedToBack_String()
         {
             //Arrange
-            List<string> words = new List<string>() { "Hello", "hello", "world" };
+            CustomLists<string> words = new CustomLists<string>() { "Hello", "hello", "world" };
             string word = "World";
             //Act
             words.Add(word);
@@ -52,10 +56,32 @@ namespace ListsTests
             Assert.AreEqual(words[words.Count - 1], word);
         }
         [TestMethod]
+        public void addElement_CheckElementIsntAddedToFront_Bool()
+        {
+            //Arrange
+            CustomLists<bool> bools = new CustomLists<bool>() { true, false, true };
+            bool isFalse = false;
+            //Act
+            bools.Add(isFalse);
+            //Assert
+            Assert.IsTrue(bools[0]);
+        }
+        [TestMethod]
+        public void addElement_CheckElementIsAddedToBack_Bool()
+        {
+            //Arrange
+            CustomLists<bool> bools = new CustomLists<bool>() { true, false, true };
+            bool isFalse = false;
+            //Act
+            bools.Add(isFalse);
+            //Assert
+            Assert.IsFalse(bools[bools.Count - 1]);
+        }
+        [TestMethod]
         public void removeElement_CheckElementIsRemoved_Int()
         {
             //Arrange
-            List<int> nums = new List<int>() { 1, 2, 3 };
+            CustomLists<int> nums = new CustomLists<int>() { 1, 2, 3 };
             int removeInt = 2;
             //Act
             nums.Remove(removeInt);
@@ -74,7 +100,7 @@ namespace ListsTests
         public void removeElement_CheckIfAllElementsAreRemoved_Int()
         {
             //Arrange
-            List<int> nums = new List<int>() { 1, 2, 2, 3 };
+            CustomLists<int> nums = new CustomLists<int>() { 1, 2, 2, 3 };
             int removeInt = 2;
             //Act
             nums.Remove(removeInt);
@@ -93,7 +119,7 @@ namespace ListsTests
         public void removeElement_CheckElementIsRemoved_String()
         {
             //Arrange
-            List<string> words = new List<string>() { "Hello", "hello", "world" };
+            CustomLists<string> words = new CustomLists<string>() { "Hello", "hello", "world" };
             string removeWord = "hello";
             //Act
             words.Remove(removeWord);
@@ -112,7 +138,7 @@ namespace ListsTests
         public void removeElement_CheckIfAllElementsAreRemoved_String()
         {
             //Arrange
-            List<string> words = new List<string>() { "Hello", "hello", "hello", "world" };
+            CustomLists<string> words = new CustomLists<string>() { "Hello", "hello", "hello", "world" };
             string removeWord = "hello";
             //Act
             words.Remove(removeWord);
@@ -126,6 +152,54 @@ namespace ListsTests
                 }
             }
             Assert.IsFalse(removed);
+        }
+        [TestMethod]
+        public void removeElement_CheckElementIsRemoved_Bool()
+        {
+            //Arrange
+            CustomLists<bool> bools = new CustomLists<bool>() { true, false, true };
+            bool removeBool = false;
+            //Act
+            bools.Remove(removeBool);
+            //Assert
+            bool removed = true;
+            for (int i = 0; i < bools.Count; i++)
+            {
+                if (bools[i] == removeBool)
+                {
+                    removed = false;
+                }
+            }
+            Assert.IsTrue(removed);
+        }
+        [TestMethod]
+        public void removeElement_CheckIfAllElementsAreRemoved_Bool()
+        {
+            //Arrange
+            CustomLists<bool> bools = new CustomLists<bool>() { true, false, false };
+            bool removeBool = false;
+            //Act
+            bools.Remove(removeBool);
+            //Assert
+            bool removed = true;
+            for (int i = 0; i < bools.Count; i++)
+            {
+                if (bools[i] == removeBool)
+                {
+                    removed = false;
+                }
+            }
+            Assert.IsFalse(removed);
+        }
+        public void zipLists_Int()
+        {
+            //Arrange
+            CustomLists<int> odds = new CustomLists<int>() { 1, 3, 5 };
+            CustomLists<int> evens = new CustomLists<int>() { 2, 4, 6 };
+            //Act
+            CustomLists<int> nums = odds.ZipperLists(evens);
+            //Assert
+            
         }
     }
 }

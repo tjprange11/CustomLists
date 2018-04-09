@@ -1,2 +1,7 @@
 C:\Users\Chief_Prange\Desktop\Dev\C#\CustomLists\ListsTests\CustomLists\obj\Debug\CustomLists.csprojResolveAssemblyReference.cache
 C:\Users\Chief_Prange\Desktop\Dev\C#\CustomLists\CustomLists\CustomLists\obj\Debug\CustomLists.csprojResolveAssemblyReference.cache
+C:\Users\Chief_Prange\Desktop\Dev\C#\CustomLists\CustomLists\CustomLists\bin\Debug\CustomLists.exe.config
+C:\Users\Chief_Prange\Desktop\Dev\C#\CustomLists\CustomLists\CustomLists\bin\Debug\CustomLists.exe
+C:\Users\Chief_Prange\Desktop\Dev\C#\CustomLists\CustomLists\CustomLists\bin\Debug\CustomLists.pdb
+C:\Users\Chief_Prange\Desktop\Dev\C#\CustomLists\CustomLists\CustomLists\obj\Debug\CustomLists.exe
+C:\Users\Chief_Prange\Desktop\Dev\C#\CustomLists\CustomLists\CustomLists\obj\Debug\CustomLists.pdb

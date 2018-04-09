@@ -19,3 +19,5 @@ C:\Users\Chief_Prange\Desktop\Dev\C#\CustomLists\CustomLists\ListsTests\bin\Debu
 C:\Users\Chief_Prange\Desktop\Dev\C#\CustomLists\CustomLists\ListsTests\obj\Debug\ListsTests.csprojResolveAssemblyReference.cache
 C:\Users\Chief_Prange\Desktop\Dev\C#\CustomLists\CustomLists\ListsTests\obj\Debug\ListsTests.dll
 C:\Users\Chief_Prange\Desktop\Dev\C#\CustomLists\CustomLists\ListsTests\obj\Debug\ListsTests.pdb
+C:\Users\Chief_Prange\Desktop\Dev\C#\CustomLists\CustomLists\ListsTests\bin\Debug\CustomLists.exe
+C:\Users\Chief_Prange\Desktop\Dev\C#\CustomLists\CustomLists\ListsTests\bin\Debug\CustomLists.pdb
