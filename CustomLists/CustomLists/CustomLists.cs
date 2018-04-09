@@ -38,19 +38,29 @@ namespace CustomLists
             T value = array[index];
             return value;
         }
+        private void IncreaseArraySize()
+        {
+            T[] temporary = new T[capacity * 2];
+            for(int i = 0;i < capacity; i++)
+            {
+                temporary[i] = array[i];
+            }
+            array = temporary;
+            capacity *= 2;
+        }
         public void Add(T element)
         {
             array[count] = element;
             count++;
         }
-        public void Remove(int index)
+        /*public void Remove(int index)
         {
             for(int i = index;i < count - 1;i++)
             {
                 array[i] = array[i + 1];
             }
             count--;
-        }
+        }*/
 
         
     }

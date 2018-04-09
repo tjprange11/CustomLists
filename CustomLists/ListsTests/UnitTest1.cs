@@ -26,23 +26,29 @@ namespace ListsTests
         public void addElement_CheckElementIsAddedToBack_Int()
         {
             //Arrange
-            CustomLists<int> nums = new CustomLists<int>() { 0, 1, 2};
+            CustomLists<int> nums = new CustomLists<int>();
+            nums.Add(0);
+            nums.Add(1);
+            nums.Add(2);
             int number = 3;
             //Act
             nums.Add(number);
             //Assert
-            Assert.AreEqual(nums[nums.Count - 1], number);
+            Assert.AreEqual(nums.ElementAt(nums.Count - 1), number);
         }
         [TestMethod]
         public void addElement_CheckElementIsntAddedToFront_String()
         {
             //Arrange
             CustomLists<string> words = new CustomLists<string>() { "hello", "world", "World" };
+            words.Add("hello");
+            words.Add("world");
+            words.Add("World");
             string word = "Hello";
             //Act
             words.Add(word);
             //Assert
-            Assert.AreNotEqual(words[0], word);
+            Assert.AreNotEqual(words.ElementAt(0), word);
         }
         [TestMethod]
         public void addElement_CheckElementIsAddedToBack_String()
@@ -53,7 +59,7 @@ namespace ListsTests
             //Act
             words.Add(word);
             //Assert
-            Assert.AreEqual(words[words.Count - 1], word);
+            Assert.AreEqual(words.ElementAt(words.Count - 1), word);
         }
         [TestMethod]
         public void addElement_CheckElementIsntAddedToFront_Bool()
@@ -64,7 +70,7 @@ namespace ListsTests
             //Act
             bools.Add(isFalse);
             //Assert
-            Assert.IsTrue(bools[0]);
+            Assert.IsTrue(bools.ElementAt(0));
         }
         [TestMethod]
         public void addElement_CheckElementIsAddedToBack_Bool()
@@ -75,13 +81,16 @@ namespace ListsTests
             //Act
             bools.Add(isFalse);
             //Assert
-            Assert.IsFalse(bools[bools.Count - 1]);
+            Assert.IsFalse(bools.ElementAt(bools.Count - 1));
         }
         [TestMethod]
         public void removeElement_CheckElementIsRemoved_Int()
         {
             //Arrange
-            CustomLists<int> nums = new CustomLists<int>() { 1, 2, 3 };
+            CustomLists<int> nums = new CustomLists<int>();
+            nums.Add(1);
+            nums.Add(2);
+            nums.Add(3);
             int removeInt = 2;
             //Act
             nums.Remove(removeInt);
@@ -89,7 +98,7 @@ namespace ListsTests
             bool removed = true;
             for (int i = 0; i < nums.Count; i++)
             {
-                if (nums[i] == removeInt)
+                if (nums.ElementAt(i) == removeInt)
                 {
                     removed = false;
                 }
@@ -100,7 +109,11 @@ namespace ListsTests
         public void removeElement_CheckIfAllElementsAreRemoved_Int()
         {
             //Arrange
-            CustomLists<int> nums = new CustomLists<int>() { 1, 2, 2, 3 };
+            CustomLists<int> nums = new CustomLists<int>();
+            nums.Add(1);
+            nums.Add(2);
+            nums.Add(2);
+            nums.Add(3);
             int removeInt = 2;
             //Act
             nums.Remove(removeInt);
@@ -108,7 +121,7 @@ namespace ListsTests
             bool removed = true;
             for (int i = 0; i < nums.Count; i++)
             {
-                if (nums[i] == removeInt)
+                if (nums.ElementAt(i) == removeInt)
                 {
                     removed = false;
                 }
@@ -127,7 +140,7 @@ namespace ListsTests
             bool removed = true;
             for (int i = 0; i < words.Count; i++)
             {
-                if (words[i] == removeWord)
+                if (words.ElementAt(i) == removeWord)
                 {
                     removed = false;
                 }
@@ -146,7 +159,7 @@ namespace ListsTests
             bool removed = true;
             for (int i = 0; i < words.Count; i++)
             {
-                if (words[i] == removeWord)
+                if (words.ElementAt(i) == removeWord)
                 {
                     removed = false;
                 }
@@ -165,7 +178,7 @@ namespace ListsTests
             bool removed = true;
             for (int i = 0; i < bools.Count; i++)
             {
-                if (bools[i] == removeBool)
+                if (bools.ElementAt(i) == removeBool)
                 {
                     removed = false;
                 }
@@ -184,7 +197,7 @@ namespace ListsTests
             bool removed = true;
             for (int i = 0; i < bools.Count; i++)
             {
-                if (bools[i] == removeBool)
+                if (bools.ElementAt(i) == removeBool)
                 {
                     removed = false;
                 }
@@ -194,8 +207,14 @@ namespace ListsTests
         public void zipLists_Int()
         {
             //Arrange
-            CustomLists<int> odds = new CustomLists<int>() { 1, 3, 5 };
-            CustomLists<int> evens = new CustomLists<int>() { 2, 4, 6 };
+            CustomLists<int> odds = new CustomLists<int>();
+            odds.Add(1);
+            odds.Add(3);
+            odds.Add(5);
+            CustomLists<int> evens = new CustomLists<int>();
+            evens.Add(2);
+            evens.Add(4);
+            evens.Add(6);
             //Act
             CustomLists<int> nums = odds.ZipperLists(evens);
             //Assert
