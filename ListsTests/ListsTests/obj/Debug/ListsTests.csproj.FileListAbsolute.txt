@@ -1,0 +1,7 @@
+C:\Users\Chief_Prange\Desktop\Dev\C#\RPSLS\ListsTests\ListsTests\bin\Debug\ListsTests.dll
+C:\Users\Chief_Prange\Desktop\Dev\C#\RPSLS\ListsTests\ListsTests\bin\Debug\ListsTests.pdb
+C:\Users\Chief_Prange\Desktop\Dev\C#\RPSLS\ListsTests\ListsTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Chief_Prange\Desktop\Dev\C#\RPSLS\ListsTests\ListsTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\Chief_Prange\Desktop\Dev\C#\RPSLS\ListsTests\ListsTests\obj\Debug\ListsTests.csprojResolveAssemblyReference.cache
+C:\Users\Chief_Prange\Desktop\Dev\C#\RPSLS\ListsTests\ListsTests\obj\Debug\ListsTests.dll
+C:\Users\Chief_Prange\Desktop\Dev\C#\RPSLS\ListsTests\ListsTests\obj\Debug\ListsTests.pdb
