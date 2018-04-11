@@ -6,22 +6,8 @@ using CustomLists;
 namespace ListsTests
 {
     [TestClass]
-    public class UnitTest1
+    public class CustomListTests
     {
-        [TestMethod]
-        public void addElement_CheckElementIsntAddedToFront_Int()
-        {
-            //Arrange
-            CustomLists<int> nums = new CustomLists<int>();
-            nums.Add(1);
-            nums.Add(2);
-            nums.Add(3);
-            int number = 0;
-            //Act
-            nums.Add(number);
-            //Assert
-            Assert.AreNotEqual(nums.ElementAt(0),number);
-        }
         [TestMethod]
         public void addElement_CheckElementIsAddedToBack_Int()
         {
@@ -36,53 +22,21 @@ namespace ListsTests
             //Assert
             Assert.AreEqual(nums.ElementAt(nums.Count - 1), number);
         }
+
         [TestMethod]
-        public void addElement_CheckElementIsntAddedToFront_String()
+        public void addElement_CheckCounter()
         {
             //Arrange
-            CustomLists<string> words = new CustomLists<string>() { "hello", "world", "World" };
-            words.Add("hello");
-            words.Add("world");
-            words.Add("World");
-            string word = "Hello";
+            CustomLists<int> nums = new CustomLists<int>() { 1, 2, 3 };
+            int actual;
+            int expected = 4;
             //Act
-            words.Add(word);
+            nums.Add(4);
+            actual = nums.Count;
             //Assert
-            Assert.AreNotEqual(words.ElementAt(0), word);
+            Assert.AreEqual(actual, expected);
         }
-        [TestMethod]
-        public void addElement_CheckElementIsAddedToBack_String()
-        {
-            //Arrange
-            CustomLists<string> words = new CustomLists<string>() { "Hello", "hello", "world" };
-            string word = "World";
-            //Act
-            words.Add(word);
-            //Assert
-            Assert.AreEqual(words.ElementAt(words.Count - 1), word);
-        }
-        [TestMethod]
-        public void addElement_CheckElementIsntAddedToFront_Bool()
-        {
-            //Arrange
-            CustomLists<bool> bools = new CustomLists<bool>() { true, false, true };
-            bool isFalse = false;
-            //Act
-            bools.Add(isFalse);
-            //Assert
-            Assert.IsTrue(bools.ElementAt(0));
-        }
-        [TestMethod]
-        public void addElement_CheckElementIsAddedToBack_Bool()
-        {
-            //Arrange
-            CustomLists<bool> bools = new CustomLists<bool>() { true, false, true };
-            bool isFalse = false;
-            //Act
-            bools.Add(isFalse);
-            //Assert
-            Assert.IsFalse(bools.ElementAt(bools.Count - 1));
-        }
+
         [TestMethod]
         public void removeElement_CheckElementIsRemoved_Int()
         {
@@ -92,133 +46,138 @@ namespace ListsTests
             nums.Add(2);
             nums.Add(3);
             int removeInt = 2;
+            int actual;
+            int expected = 3;
             //Act
             nums.Remove(removeInt);
+            actual = nums[1];
             //Assert
-            bool removed = true;
-            for (int i = 0; i < nums.Count; i++)
-            {
-                if (nums.ElementAt(i) == removeInt)
-                {
-                    removed = false;
-                }
-            }
-            Assert.IsTrue(removed);
+            Assert.AreEqual(actual, expected);
         }
+
         [TestMethod]
         public void removeElement_CheckIfAllElementsAreRemoved_Int()
         {
             //Arrange
             CustomLists<int> nums = new CustomLists<int>();
             nums.Add(1);
-            nums.Add(2);
-            nums.Add(2);
+            nums.Add(4);
             nums.Add(3);
-            int removeInt = 2;
+            nums.Add(4);
+            int removeInt = 4;
+            int actual;
+            int expected = 4;
             //Act
             nums.Remove(removeInt);
+            actual = nums[2];
             //Assert
-            bool removed = true;
-            for (int i = 0; i < nums.Count; i++)
-            {
-                if (nums.ElementAt(i) == removeInt)
-                {
-                    removed = false;
-                }
-            }
-            Assert.IsFalse(removed);
+            Assert.AreEqual(actual, expected);
         }
+
         [TestMethod]
-        public void removeElement_CheckElementIsRemoved_String()
+        public void removeElement_CheckCounter()
         {
             //Arrange
-            CustomLists<string> words = new CustomLists<string>() { "Hello", "hello", "world" };
-            string removeWord = "hello";
+            CustomLists<int> nums = new CustomLists<int>() { 1, 2, 3 };
+            int actual;
+            int expected = 2;
             //Act
-            words.Remove(removeWord);
+            nums.Remove(2);
+            actual = nums.Count;
             //Assert
-            bool removed = true;
-            for (int i = 0; i < words.Count; i++)
-            {
-                if (words.ElementAt(i) == removeWord)
-                {
-                    removed = false;
-                }
-            }
-            Assert.IsTrue(removed);
+            Assert.AreEqual(actual, expected);
         }
+
         [TestMethod]
-        public void removeElement_CheckIfAllElementsAreRemoved_String()
+        public void zipLists_TestIndex_1()
         {
             //Arrange
-            CustomLists<string> words = new CustomLists<string>() { "Hello", "hello", "hello", "world" };
-            string removeWord = "hello";
+            CustomLists<int> odds = new CustomLists<int>() { 1, 3, 5 };
+            CustomLists<int> evens = new CustomLists<int>() { 2, 4, 6, };
+            int actual;
+            int expected = 2;
             //Act
-            words.Remove(removeWord);
+            CustomLists<int> newlist = odds.ZipLists(evens);
+            actual = newlist[1];
             //Assert
-            bool removed = true;
-            for (int i = 0; i < words.Count; i++)
-            {
-                if (words.ElementAt(i) == removeWord)
-                {
-                    removed = false;
-                }
-            }
-            Assert.IsFalse(removed);
-        }
-        [TestMethod]
-        public void removeElement_CheckElementIsRemoved_Bool()
-        {
-            //Arrange
-            CustomLists<bool> bools = new CustomLists<bool>() { true, false, true };
-            bool removeBool = false;
-            //Act
-            bools.Remove(removeBool);
-            //Assert
-            bool removed = true;
-            for (int i = 0; i < bools.Count; i++)
-            {
-                if (bools.ElementAt(i) == removeBool)
-                {
-                    removed = false;
-                }
-            }
-            Assert.IsTrue(removed);
-        }
-        [TestMethod]
-        public void removeElement_CheckIfAllElementsAreRemoved_Bool()
-        {
-            //Arrange
-            CustomLists<bool> bools = new CustomLists<bool>() { true, false, false };
-            bool removeBool = false;
-            //Act
-            bools.Remove(removeBool);
-            //Assert
-            bool removed = true;
-            for (int i = 0; i < bools.Count; i++)
-            {
-                if (bools.ElementAt(i) == removeBool)
-                {
-                    removed = false;
-                }
-            }
-            Assert.IsFalse(removed);
-        }
-        public void zipLists_Int()
-        {
-            //Arrange
-            CustomLists<int> odds = new CustomLists<int>();
-            odds.Add(1);
-            odds.Add(3);
-            odds.Add(5);
-            CustomLists<int> evens = new CustomLists<int>();
-            evens.Add(2);
-            evens.Add(4);
-            evens.Add(6);
-            //Act
-            CustomLists<int> nums = odds.ZipperLists(evens);
-            //Assert
+            Assert.AreEqual(actual, expected);
             
+        }
+
+        [TestMethod]
+        public void zipLists_TestIndex_2()
+        {
+            //Arrange
+            CustomLists<int> odds = new CustomLists<int>() { 1, 3, 5 };
+            CustomLists<int> evens = new CustomLists<int>() { 2, 4, 6, };
+            int actual;
+            int expected = 5;
+            //Act
+            CustomLists<int> newlist = odds.ZipLists(evens);
+            actual = newlist[4];
+            //Assert
+            Assert.AreEqual(actual, expected);
+
+        }
+
+        [TestMethod]
+        public void zipLists_CheckCounter()
+        {
+            //Arrange
+            CustomLists<int> odds = new CustomLists<int>() { 1, 3, 5 };
+            CustomLists<int> evens = new CustomLists<int>() { 2, 4, 6, };
+            int actual;
+            int expected = 6;
+            //Act
+            CustomLists<int> newlist = odds.ZipLists(evens);
+            actual = newlist.Count;
+            //Assert
+            Assert.AreEqual(actual, expected);
+
+        }
+
+        [TestMethod]
+        public void AddOpperatorOverload()
+        {
+            //Arrange
+            CustomLists<int> list1 = new CustomLists<int>() { 1, 2, 3 };
+            CustomLists<int> list2 = new CustomLists<int>() { 4, 5, 6 };
+            CustomLists<int> actual;
+            CustomLists<int> expected = new CustomLists<int>() { 1, 2, 3, 4, 5, 6, };
+            //Act
+            actual = list1 + list2;
+            bool isTrue = true;
+            for(int i = 0; i < expected.Count;i++)
+            {
+                if(actual[i] != expected[i])
+                {
+                    isTrue = false;
+                }
+            }
+            //Assert
+            Assert.IsTrue(isTrue);
+        }
+
+        [TestMethod]
+        public void SubtractOpperatorOverload()
+        {
+            //Arrange
+            CustomLists<int> list1 = new CustomLists<int>() { 1, 2, 3, 4, 5, 6 };
+            CustomLists<int> list2 = new CustomLists<int>() { 2, 4, 6 };
+            CustomLists<int> actual;
+            CustomLists<int> expected = new CustomLists<int>() { 1, 3, 5 };
+            //Act
+            actual = list1 - list2;
+            bool isTrue = true;
+            for (int i = 0; i < expected.Count; i++)
+            {
+                if (actual[i] != expected[i])
+                {
+                    isTrue = false;
+                }
+            }
+            //Assert
+            Assert.IsTrue(isTrue);
         }
     }
 }
