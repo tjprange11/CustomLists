@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomLists
 {
-     public class CustomLists<T> : IEnumerable<T>, IComparable<T>
+     public class CustomLists<T> : IEnumerable<T>
     {
         //memeber variables
         T[] array;
@@ -148,86 +148,6 @@ namespace CustomLists
             return newList;
         }
 
-        public void Sort()
-        {
-            int left = 0;
-            int right = count - 1;
-            int i = left, j = right;
-            T pivot = array[(left + right) / 2];
-
-            while (i <= j)
-            {
-                while (array[i].CompareTo(pivot) < 0)
-                {
-                    i++;
-                }
-
-                while (array[j].CompareTo(pivot) > 0)
-                {
-                    j--;
-                }
-
-                if (i <= j)
-                {
-                    // Swap
-                    T tmp = array[i];
-                    array[i] = array[j];
-                    array[j] = tmp;
-
-                    i++;
-                    j--;
-                }
-            }
-
-            // Recursive calls
-            if (left < j)
-            {
-                Sort(left, j);
-            }
-
-            if (i < right)
-            {
-                Sort(i, right);
-            }
-        }
-        private void Sort(int left, int right)
-        {
-            int i = left, j = right;
-            T pivot = array[(left + right) / 2];
-
-            while (i <= j)
-            {
-                while (array[i].CompareTo(pivot) < 0)
-                {
-                    i++;
-                }
-
-                while (array[j].CompareTo(pivot) > 0)
-                {
-                    j--;
-                }
-
-                if (i <= j)
-                {
-                    // Swap
-                    SwithPosition(i, j);
-
-                    i++;
-                    j--;
-                }
-            }
-
-            // Recursive calls
-            if (left < j)
-            {
-                Sort(left, j);
-            }
-
-            if (i < right)
-            {
-                Sort(i, right);
-            }
-        }
         private void SwithPosition(int indexOne, int indexTwo)
         {
             T temporary = array[indexOne];
@@ -235,9 +155,5 @@ namespace CustomLists
             array[indexTwo] = temporary;
         }
 
-        public int CompareTo(T other)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
